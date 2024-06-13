@@ -5,7 +5,10 @@ class BaseballGame:
         self.question = ""
     def guess(self, guess_number):
         self.check_input_validity(guess_number)
-        return BaseballGameResult(True, 3, 0)
+        if self.question == guess_number:
+            return BaseballGameResult(True, 3, 0)
+        else:
+            return BaseballGameResult(False, 0, 0)
 
     def check_input_validity(self, guess_number):
         if guess_number is None:
