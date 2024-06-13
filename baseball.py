@@ -7,5 +7,5 @@ class BaseballGame:
             raise TypeError
 
         for c in guess_number:
-            if c < '0' and c > '9':
+            if not c.isdigit():
                 raise TypeError
