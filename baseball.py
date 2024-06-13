@@ -8,7 +8,12 @@ class BaseballGame:
         if self.question == guess_number:
             return BaseballGameResult(True, 3, 0)
         else:
-            return BaseballGameResult(False, 0, 0)
+            strikes = 0
+            for idx in range(len(guess_number)):
+                if guess_number[idx] == self.question[idx]:
+                    strikes += 1
+
+            return BaseballGameResult(False, strikes, 0)
 
     def check_input_validity(self, guess_number):
         if guess_number is None:
