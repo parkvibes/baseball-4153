@@ -9,11 +9,14 @@ class BaseballGame:
             return BaseballGameResult(True, 3, 0)
         else:
             strikes = 0
+            balls = 0
             for idx in range(len(guess_number)):
                 if guess_number[idx] == self.question[idx]:
                     strikes += 1
+                elif self.question.find(guess_number[idx]) > -1:
+                    balls += 1
 
-            return BaseballGameResult(False, strikes, 0)
+            return BaseballGameResult(False, strikes, balls)
 
     def check_input_validity(self, guess_number):
         if guess_number is None:
